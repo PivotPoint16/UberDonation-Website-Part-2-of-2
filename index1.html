@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>UberDonation</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600|Source+Code+Pro" rel="stylesheet" />
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />	
+		<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>		
+		<script src="js/skel.min.js">
+		
+		
+		{
+			prefix: 'css/style',
+			preloadStyleSheets: true,
+			resetCSS: true,
+			boxModel: 'border',
+			grid: { gutters: 30 },
+			breakpoints: {
+				wide: { range: '1200-', containers: 1140, grid: { gutters: 50 } },
+				narrow: { range: '481-1199', containers: 960 },
+				mobile: { range: '-480', containers: 'fluid', lockViewport: true, grid: { collapse: true } }
+			}
+		}
+		</script>
+		
+		<script>
+			var money = 0;
+			var increment = 5.78703703704;
+			window.setInterval(
+						function () 
+						{
+							money = money + increment;
+							document.getElementById("money_").innerHTML =  "$" + money.toFixed(2) + " Raised ";
+						}, 1000);
+		</script>
+		<script>
+			var backer = 0;
+			var increment2 = 11.57407407408;
+			window.setInterval(
+						function () 
+						{
+							backer = backer + increment2;
+							document.getElementById("backer_").innerHTML = "	" + "by " + backer.toFixed() + " Uber riders";
+						}, 1000);
+		</script>
+		
+		<script>
+			$(function() {
+
+				// Note: make sure you call dropotron on the top level <ul>
+				$('#main-nav > ul').dropotron({ 
+					offsetY: -10 // Nudge up submenus by 10px to account for padding
+				});
+
+			});
+		</script>
+		<script>
+			// DOM ready
+			$(function() {
+    
+			// Create the dropdown base
+			$("<select />").appendTo("nav");
+   
+			// Create default option "Go to..."
+			$("<option />", {
+				"selected": "selected",
+				"value"   : "",
+				"text"    : "Menu"
+			}).appendTo("nav select");
+   
+			// Populate dropdown with menu items
+			$("nav a").each(function() {
+			var el = $(this);
+			$("<option />", {
+				"value"   : el.attr("href"),
+				"text"    : el.text()
+			}).appendTo("nav select");
+			});
+   
+			// To make dropdown actually work
+			// To make more unobtrusive: http://css-tricks.com/4064-unobtrusive-page-changer/
+			$("nav select").change(function() {
+				window.location = $(this).find("option:selected").val();
+			});
+  
+			});
+		</script>	
+	</head>
+	<body>
+		<div id="header_container">		
+		    <div class="container">
+			 <div mapid="height: 180px;"></div>
+			<!-- Header -->
+				<div id="header" class="row">
+					<div class="4u">
+						<div class="wrapper">
+							<h1><a href="index.html">Uber<span class="header_colour">Donation Program</span></a></h1>
+							<h2>Give them a ride with one Click</h2>
+					    </div>
+					</div>
+					
+					<nav id="main-nav" class="8u">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<!--<li><a href="examples.html">Examples</a></li>
+							<li><a href="apage.html">A Page</a></li>
+							<li><a href="anotherpage.html">Another Page</a></li>-->							
+							<li>
+								<a href="#">Helpful links</a>			
+									<ul>
+										<li>
+											<a href="">More information</a>
+												<ul>
+													<a href="http://time.com/money/4410746/uber-rides/">Number of Uber rides to date</a>
+												</ul>
+										</li>
+										<li><a href="index1.html">Donations</a></li>
+										<!--<li><a href="#">Drop Down 3</a></li>-->
+									</ul>
+							</li>
+							<li><a href="contact.php">Contact</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>	
+			
+		    <div class="container">						
+				<div class="12u">
+					<div id="wrapper-banner">						
+						<!-- Banner -->								
+						<div id="banner">
+							<a href="#"><img src="images/banner.jpg" alt="banner image" /></a>
+						</div>	
+					</div>
+				</div>						
+			</div>
+			
+        </div>		
+
+		<div id="site_content">
+			<div class="container">			
+			
+				<!-- Features -->			
+				<div class="row">									
+					
+					<section class="4u">
+						<div id="sidebar">
+							<section class="12u">
+								<h3>Subscribe Now</h3>
+								<ul>
+									<li><a href="https://itunes.apple.com/us/app/uber/id368677368?mt=8">Click here to subscribe</a></li>
+								</ul>
+								<h4>Sponsor a ride for the homeless</h4>
+								<h4>Get a Chance to Win Free Rides</h4>
+							</section>
+							<section class="12u">
+								<h3>Get Uber</h3>
+								<ul>
+									<li><a href="https://itunes.apple.com/us/app/uber/id368677368?mt=8">Download Uber for IOS</a></li>
+									<li><a href="https://play.google.com/store/apps/details?id=com.ubercab&hl=en">Download Uber for Android</a></li>
+								</ul>
+							</section>
+							<section class="12u">
+								<h3>Hewlett Packard Enterprise</h3>
+								<ul>
+									<li><a href="https://www.hpe.com/us/en/home.html">Visit Hewlett Packard Enterprise</a></li>
+								</ul>
+							</section>
+						</div>
+					</section>
+
+					<section class="8u">				
+						<h1>Donations</h1>
+						
+						<font size= "7"><div id = "money_"></div></font>
+						<p>     </p>
+						<font size= "7"><div id = "backer_"></div></font>
+					</section>					
+				</div>
+			</div>
+        </div>			
+		<div class="container">					
+			<!-- Footer -->
+				<footer>
+					<p><img src="images/twitter.png" alt="twitter" />&nbsp;<img src="images/facebook.png" alt="facebook" />&nbsp;<img src="images/rss.png" alt="rss" /></p>
+					<!--<p><a href="index.html">Home</a> | <a href="examples.html">Examples</a> | <a href="apage.html">A Page</a> | <a href="anotherpage.html">Another Page</a> | <a href="contact.php">Contact Us</a></p>-->
+					<!--<p>Copyright &copy; CSS3_water | <a href="http://skeljs.org/">skel.js</a> | <a href="http://fotogrph.com/">Images</a> | <a href="http://www.css3templates.co.uk">design from css3templates.co.uk</a></p>-->
+				</footer>		
+		</div>		
+			
+	</body>
+</html>
